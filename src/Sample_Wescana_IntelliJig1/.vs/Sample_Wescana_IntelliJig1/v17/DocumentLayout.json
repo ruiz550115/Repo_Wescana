@@ -1,0 +1,23 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\_GitRepo\\Repo_Wescana\\src\\Sample_Wescana_IntelliJig1\\",
+  "Documents": [],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1528276488:0:{a6f4fceb-1c71-4697-840a-c4fdf5060a5f}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

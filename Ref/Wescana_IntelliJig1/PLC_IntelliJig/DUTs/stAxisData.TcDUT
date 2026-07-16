@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4026.18">
+  <DUT Name="stAxisData" Id="{55bfeffc-3d49-4c2f-acc5-5e3e82d15314}">
+    <Declaration><![CDATA[TYPE stAxisData :
+STRUCT
+	// Control
+
+	xEnable       : BOOL;
+	xReset        : BOOL;
+	xMoveAbs      : BOOL;
+	xStop		  :	Bool;
+	lrPosition    : LREAL;
+	lrVelocity    : LREAL := 100.0; // Default velocity
+
+
+	// Stauts
+
+	xReady         : BOOL;
+	xBusy          : BOOL;
+	xDone          : BOOL;
+	xError         : BOOL;
+	udiErrorID     : UDINT;
+	lrActPosition  : LREAL;
+	
+
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

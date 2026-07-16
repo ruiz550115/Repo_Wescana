@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4026.18">
+  <POU Name="MAIN" Id="{67d06cd4-819c-47a5-97fe-ad56f5248a00}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM MAIN
+VAR
+	
+	i : INT;
+	xFirstCycle : BOOL := TRUE;
+	
+	// Python writes directly to these two variables:
+	aPythonPositions        : ARRAY[1..GVL_Intjig.MAX_AXES] OF LREAL;
+	xNewPositionsAvailable  : BOOL;
+	aActualPositions        : ARRAY[1..GVL_Intjig.MAX_AXES] OF LREAL; // <-- Landing pad for Python to read
+
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[// =================================================================
+// 1. DYNAMIC ADDRESS POINTER INJECTION (Runs once on PLC startup)
+// =================================================================
+IF xFirstCycle THEN
+	
+	IF GVL_Intjig.MAX_AXES >= 1  THEN GVL_Intjig.aLoopAxes[1]  := ADR(GVL_Intjig.Axis01);  END_IF
+	IF GVL_Intjig.MAX_AXES >= 2  THEN GVL_Intjig.aLoopAxes[2]  := ADR(GVL_Intjig.Axis02);  END_IF
+	IF GVL_Intjig.MAX_AXES >= 3  THEN GVL_Intjig.aLoopAxes[3]  := ADR(GVL_Intjig.Axis03);  END_IF
+	IF GVL_Intjig.MAX_AXES >= 4  THEN GVL_Intjig.aLoopAxes[4]  := ADR(GVL_Intjig.Axis04);  END_IF
+	IF GVL_Intjig.MAX_AXES >= 5  THEN GVL_Intjig.aLoopAxes[5]  := ADR(GVL_Intjig.Axis05);  END_IF
+	IF GVL_Intjig.MAX_AXES >= 6  THEN GVL_Intjig.aLoopAxes[6]  := ADR(GVL_Intjig.Axis06);  END_IF
+	IF GVL_Intjig.MAX_AXES >= 7  THEN GVL_Intjig.aLoopAxes[7]  := ADR(GVL_Intjig.Axis07);  END_IF
+	IF GVL_Intjig.MAX_AXES >= 8  THEN GVL_Intjig.aLoopAxes[8]  := ADR(GVL_Intjig.Axis08);  END_IF
+	IF GVL_Intjig.MAX_AXES >= 9  THEN GVL_Intjig.aLoopAxes[9]  := ADR(GVL_Intjig.Axis09);  END_IF
+	IF GVL_Intjig.MAX_AXES >= 10 THEN GVL_Intjig.aLoopAxes[10] := ADR(GVL_Intjig.Axis10);  END_IF
+	IF GVL_Intjig.MAX_AXES >= 11 THEN GVL_Intjig.aLoopAxes[11] := ADR(GVL_Intjig.Axis11);  END_IF
+	IF GVL_Intjig.MAX_AXES >= 12 THEN GVL_Intjig.aLoopAxes[12] := ADR(GVL_Intjig.Axis12);  END_IF
+	IF GVL_Intjig.MAX_AXES >= 13 THEN GVL_Intjig.aLoopAxes[13] := ADR(GVL_Intjig.Axis13);  END_IF
+	IF GVL_Intjig.MAX_AXES >= 14 THEN GVL_Intjig.aLoopAxes[14] := ADR(GVL_Intjig.Axis14);  END_IF
+	IF GVL_Intjig.MAX_AXES >= 15 THEN GVL_Intjig.aLoopAxes[15] := ADR(GVL_Intjig.Axis15);  END_IF
+	IF GVL_Intjig.MAX_AXES >= 16 THEN GVL_Intjig.aLoopAxes[16] := ADR(GVL_Intjig.Axis16);  END_IF
+	IF GVL_Intjig.MAX_AXES >= 17 THEN GVL_Intjig.aLoopAxes[17] := ADR(GVL_Intjig.Axis17);  END_IF
+	IF GVL_Intjig.MAX_AXES >= 18 THEN GVL_Intjig.aLoopAxes[18] := ADR(GVL_Intjig.Axis18);  END_IF
+	IF GVL_Intjig.MAX_AXES >= 19 THEN GVL_Intjig.aLoopAxes[19] := ADR(GVL_Intjig.Axis19);  END_IF
+	IF GVL_Intjig.MAX_AXES >= 20 THEN GVL_Intjig.aLoopAxes[20] := ADR(GVL_Intjig.Axis20);  END_IF
+	IF GVL_Intjig.MAX_AXES >= 21 THEN GVL_Intjig.aLoopAxes[21] := ADR(GVL_Intjig.Axis21);  END_IF
+	IF GVL_Intjig.MAX_AXES >= 22 THEN GVL_Intjig.aLoopAxes[22] := ADR(GVL_Intjig.Axis22);  END_IF
+	IF GVL_Intjig.MAX_AXES >= 23 THEN GVL_Intjig.aLoopAxes[23] := ADR(GVL_Intjig.Axis23);  END_IF
+	IF GVL_Intjig.MAX_AXES >= 24 THEN GVL_Intjig.aLoopAxes[24] := ADR(GVL_Intjig.Axis24);  END_IF
+	IF GVL_Intjig.MAX_AXES >= 25 THEN GVL_Intjig.aLoopAxes[25] := ADR(GVL_Intjig.Axis25);  END_IF
+	IF GVL_Intjig.MAX_AXES >= 26 THEN GVL_Intjig.aLoopAxes[26] := ADR(GVL_Intjig.Axis26);  END_IF
+	IF GVL_Intjig.MAX_AXES >= 27 THEN GVL_Intjig.aLoopAxes[27] := ADR(GVL_Intjig.Axis27);  END_IF
+	IF GVL_Intjig.MAX_AXES >= 28 THEN GVL_Intjig.aLoopAxes[28] := ADR(GVL_Intjig.Axis28);  END_IF
+	IF GVL_Intjig.MAX_AXES >= 29 THEN GVL_Intjig.aLoopAxes[29] := ADR(GVL_Intjig.Axis29);  END_IF
+	IF GVL_Intjig.MAX_AXES >= 30 THEN GVL_Intjig.aLoopAxes[30] := ADR(GVL_Intjig.Axis30);  END_IF
+	IF GVL_Intjig.MAX_AXES >= 31 THEN GVL_Intjig.aLoopAxes[31] := ADR(GVL_Intjig.Axis31);  END_IF
+	IF GVL_Intjig.MAX_AXES >= 32 THEN GVL_Intjig.aLoopAxes[32] := ADR(GVL_Intjig.Axis32);  END_IF
+	IF GVL_Intjig.MAX_AXES >= 33 THEN GVL_Intjig.aLoopAxes[33] := ADR(GVL_Intjig.Axis33);  END_IF
+	IF GVL_Intjig.MAX_AXES >= 34 THEN GVL_Intjig.aLoopAxes[34] := ADR(GVL_Intjig.Axis34);  END_IF
+	IF GVL_Intjig.MAX_AXES >= 35 THEN GVL_Intjig.aLoopAxes[35] := ADR(GVL_Intjig.Axis35);  END_IF
+	IF GVL_Intjig.MAX_AXES >= 36 THEN GVL_Intjig.aLoopAxes[36] := ADR(GVL_Intjig.Axis36);  END_IF
+	IF GVL_Intjig.MAX_AXES >= 37 THEN GVL_Intjig.aLoopAxes[37] := ADR(GVL_Intjig.Axis37);  END_IF
+	IF GVL_Intjig.MAX_AXES >= 38 THEN GVL_Intjig.aLoopAxes[38] := ADR(GVL_Intjig.Axis38);  END_IF
+	IF GVL_Intjig.MAX_AXES >= 39 THEN GVL_Intjig.aLoopAxes[39] := ADR(GVL_Intjig.Axis39);  END_IF
+	IF GVL_Intjig.MAX_AXES >= 40 THEN GVL_Intjig.aLoopAxes[40] := ADR(GVL_Intjig.Axis40);  END_IF
+	IF GVL_Intjig.MAX_AXES >= 41 THEN GVL_Intjig.aLoopAxes[41] := ADR(GVL_Intjig.Axis41);  END_IF
+	IF GVL_Intjig.MAX_AXES >= 42 THEN GVL_Intjig.aLoopAxes[42] := ADR(GVL_Intjig.Axis42);  END_IF
+	IF GVL_Intjig.MAX_AXES >= 43 THEN GVL_Intjig.aLoopAxes[43] := ADR(GVL_Intjig.Axis43);  END_IF
+	IF GVL_Intjig.MAX_AXES >= 44 THEN GVL_Intjig.aLoopAxes[44] := ADR(GVL_Intjig.Axis44);  END_IF
+	IF GVL_Intjig.MAX_AXES >= 45 THEN GVL_Intjig.aLoopAxes[45] := ADR(GVL_Intjig.Axis45);  END_IF
+	IF GVL_Intjig.MAX_AXES >= 46 THEN GVL_Intjig.aLoopAxes[46] := ADR(GVL_Intjig.Axis46);  END_IF
+	IF GVL_Intjig.MAX_AXES >= 47 THEN GVL_Intjig.aLoopAxes[47] := ADR(GVL_Intjig.Axis47);  END_IF
+	IF GVL_Intjig.MAX_AXES >= 48 THEN GVL_Intjig.aLoopAxes[48] := ADR(GVL_Intjig.Axis48);  END_IF
+	IF GVL_Intjig.MAX_AXES >= 49 THEN GVL_Intjig.aLoopAxes[49] := ADR(GVL_Intjig.Axis49);  END_IF
+	IF GVL_Intjig.MAX_AXES >= 50 THEN GVL_Intjig.aLoopAxes[50] := ADR(GVL_Intjig.Axis50);  END_IF
+
+	xFirstCycle := FALSE;
+	
+END_IF
+
+// =================================================================
+// 2. PROCESS INCOMING POSITION BUFFER FROM PYTHON
+// =================================================================
+IF xNewPositionsAvailable THEN
+	FOR i := 1 TO GVL_Intjig.MAX_AXES DO
+		GVL_Intjig.astAxisData[i].lrPosition := aPythonPositions[i];
+		// Trigger execution step safely
+		IF GVL_Intjig.astAxisData[i].xReady AND NOT GVL_Intjig.astAxisData[i].xBusy THEN
+			GVL_Intjig.astAxisData[i].xMoveAbs := TRUE;
+		END_IF
+	END_FOR
+	xNewPositionsAvailable := FALSE; 
+END_IF
+
+
+
+// =================================================================
+// 3. CYCLIC Intjig CONTROL LOOP
+// =================================================================
+FOR i := 1 TO GVL_Intjig.MAX_AXES DO
+	// Safety pointer verification statement stops runtime page faults
+	IF GVL_Intjig.aLoopAxes[i] <> 0 THEN
+		
+		// Run function block instance using dereferenced pointers ('^')
+		GVL_Intjig.afbAxisCntrl[i](
+			stData := GVL_Intjig.astAxisData[i],
+			Axis   := GVL_Intjig.aLoopAxes[i]^
+		);
+		
+		// Build feedback loop buffer
+		aActualPositions[i] := GVL_Intjig.astAxisData[i].lrActPosition;
+		
+		IF GVL_Intjig.astAxisData[i].xBusy THEN
+			GVL_Intjig.astAxisData[i].xMoveAbs := FALSE;
+		END_IF
+		
+	END_IF
+END_FOR]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

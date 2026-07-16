@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4026.18">
+  <GVL Name="GVL_Intjig" Id="{402d25f5-83e6-430e-b6f6-01ea739e6627}">
+    <Declaration><![CDATA[{attribute 'qualified_only'}
+VAR_GLOBAL CONSTANT
+	// Set this to ANY arbitrary integer. The entire PLC system scales to it automatically.
+	MAX_AXES : INT := 36; 
+END_VAR
+
+VAR_GLOBAL
+	// System structures scale directly with the constant
+	astAxisData    : ARRAY[1..GVL_Intjig.MAX_AXES] OF stAxisData;
+	afbAxisCntrl   : ARRAY[1..GVL_Intjig.MAX_AXES] OF fbAxisCntrl;
+	
+	// A flat pointer loop array used to execute your cyclic blocks
+	aLoopAxes      : ARRAY[1..50] OF POINTER TO AXIS_REF;
+
+	// Single independent variables. The precompiler binds these 100% reliably.
+	{attribute 'TcNcAxis' := 'Axis1'}  Axis01 : AXIS_REF;
+	{attribute 'TcNcAxis' := 'Axis2'}  Axis02 : AXIS_REF;
+	{attribute 'TcNcAxis' := 'Axis3'}  Axis03 : AXIS_REF;
+	{attribute 'TcNcAxis' := 'Axis4'}  Axis04 : AXIS_REF;
+	{attribute 'TcNcAxis' := 'Axis5'}  Axis05 : AXIS_REF;
+	{attribute 'TcNcAxis' := 'Axis6'}  Axis06 : AXIS_REF;
+	{attribute 'TcNcAxis' := 'Axis7'}  Axis07 : AXIS_REF;
+	{attribute 'TcNcAxis' := 'Axis8'}  Axis08 : AXIS_REF;
+	{attribute 'TcNcAxis' := 'Axis9'}  Axis09 : AXIS_REF;
+	{attribute 'TcNcAxis' := 'Axis10'} Axis10 : AXIS_REF;
+	{attribute 'TcNcAxis' := 'Axis11'} Axis11 : AXIS_REF;
+	{attribute 'TcNcAxis' := 'Axis12'} Axis12 : AXIS_REF;
+	{attribute 'TcNcAxis' := 'Axis13'} Axis13 : AXIS_REF;
+	{attribute 'TcNcAxis' := 'Axis14'} Axis14 : AXIS_REF;
+	{attribute 'TcNcAxis' := 'Axis15'} Axis15 : AXIS_REF;
+	{attribute 'TcNcAxis' := 'Axis16'} Axis16 : AXIS_REF;
+	{attribute 'TcNcAxis' := 'Axis17'} Axis17 : AXIS_REF;
+	{attribute 'TcNcAxis' := 'Axis18'} Axis18 : AXIS_REF;
+	{attribute 'TcNcAxis' := 'Axis19'} Axis19 : AXIS_REF;
+	{attribute 'TcNcAxis' := 'Axis20'} Axis20 : AXIS_REF;
+	{attribute 'TcNcAxis' := 'Axis21'} Axis21 : AXIS_REF;
+	{attribute 'TcNcAxis' := 'Axis22'} Axis22 : AXIS_REF;
+	{attribute 'TcNcAxis' := 'Axis23'} Axis23 : AXIS_REF;
+	{attribute 'TcNcAxis' := 'Axis24'} Axis24 : AXIS_REF;
+	{attribute 'TcNcAxis' := 'Axis25'} Axis25 : AXIS_REF;
+	{attribute 'TcNcAxis' := 'Axis26'} Axis26 : AXIS_REF;
+	{attribute 'TcNcAxis' := 'Axis27'} Axis27 : AXIS_REF;
+	{attribute 'TcNcAxis' := 'Axis28'} Axis28 : AXIS_REF;
+	{attribute 'TcNcAxis' := 'Axis29'} Axis29 : AXIS_REF;
+	{attribute 'TcNcAxis' := 'Axis30'} Axis30 : AXIS_REF;
+	{attribute 'TcNcAxis' := 'Axis31'} Axis31 : AXIS_REF;
+	{attribute 'TcNcAxis' := 'Axis32'} Axis32 : AXIS_REF;
+	{attribute 'TcNcAxis' := 'Axis33'} Axis33 : AXIS_REF;
+	{attribute 'TcNcAxis' := 'Axis34'} Axis34 : AXIS_REF;
+	{attribute 'TcNcAxis' := 'Axis35'} Axis35 : AXIS_REF;
+	{attribute 'TcNcAxis' := 'Axis36'} Axis36 : AXIS_REF;
+	{attribute 'TcNcAxis' := 'Axis37'} Axis37 : AXIS_REF;
+	{attribute 'TcNcAxis' := 'Axis38'} Axis38 : AXIS_REF;
+	{attribute 'TcNcAxis' := 'Axis39'} Axis39 : AXIS_REF;
+	{attribute 'TcNcAxis' := 'Axis40'} Axis40 : AXIS_REF;
+	{attribute 'TcNcAxis' := 'Axis41'} Axis41 : AXIS_REF;
+	{attribute 'TcNcAxis' := 'Axis42'} Axis42 : AXIS_REF;
+	{attribute 'TcNcAxis' := 'Axis43'} Axis43 : AXIS_REF;
+	{attribute 'TcNcAxis' := 'Axis44'} Axis44 : AXIS_REF;
+	{attribute 'TcNcAxis' := 'Axis45'} Axis45 : AXIS_REF;
+	{attribute 'TcNcAxis' := 'Axis46'} Axis46 : AXIS_REF;
+	{attribute 'TcNcAxis' := 'Axis47'} Axis47 : AXIS_REF;
+	{attribute 'TcNcAxis' := 'Axis48'} Axis48 : AXIS_REF;
+	{attribute 'TcNcAxis' := 'Axis49'} Axis49 : AXIS_REF;
+	{attribute 'TcNcAxis' := 'Axis50'} Axis50 : AXIS_REF;
+	
+
+END_VAR]]></Declaration>
+  </GVL>
+</TcPlcObject>

@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4026.18">
+  <POU Name="fbAxisCntrl" Id="{37c7104a-684c-4c97-9f51-324233d2dc3a}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK fbAxisCntrl
+VAR_IN_OUT
+	
+	stData      : stAxisData; // Links to the specific axis data
+	Axis		: Axis_ref;  // Passed directly via reference variable
+
+END_VAR
+
+VAR
+	fbPower   : MC_Power;
+	fbStop    : MC_Stop;
+	fbReset   : MC_Reset;
+	fbMoveAbs : MC_MoveAbsolute;
+	
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[// 1. Read actual status from NC
+
+Axis.ReadStatus();
+stData.lrActPosition := Axis.NcToPlc.ActPos;
+stData.xReady        := Axis.Status.Operational;
+
+// 2. Handle Axis Power
+
+fbPower(
+	Axis     		:= Axis,
+	Enable  		:= stData.xEnable,
+	Enable_Positive := stData.xEnable,
+	Enable_Negative := stData.xEnable,
+	Override 		:= 100.0
+);
+
+// 3. Handle Axis Reset
+
+fbReset(
+	Axis     := Axis,
+	Execute  := stData.xReset
+);
+
+// 4. Handle Axis Stop
+
+fbStop(
+	Axis	  := Axis,
+	Execute	  := stData.xStop
+);
+
+// 5. Handle Absolute Positioning
+
+fbMoveAbs(
+	Axis     := Axis,
+	Execute  := stData.xMoveAbs AND NOT stData.xStop,
+	Position := stData.lrposition,
+	Velocity := stData.lrVelocity
+);
+	
+// 6. Update Status Outputs back to the structure
+
+stData.xBusy    := fbMoveAbs.Busy;
+stData.xDone    := fbMoveAbs.Done;
+stData.xError   := fbPower.Error OR fbReset.Error OR fbMoveAbs.Error;
+
+IF fbMoveAbs.Error THEN
+	stData.udiErrorID := fbMoveAbs.ErrorID;
+ELSIF fbPower.Error THEN
+	stData.udiErrorID := fbPower.ErrorID;
+ELSIF fbReset.Error THEN
+	stData.udiErrorID := fbReset.ErrorID;
+ELSE
+	stData.udiErrorID := 0;
+END_IF
+]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

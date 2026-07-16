@@ -1,0 +1,109 @@
+import ctypes
+import pyads
+import time
+
+# =================================================================
+# CONNECTION DEFINITIONS
+# =================================================================
+LOCAL_AMS_NET_ID = "127.0.0.1.1.1"
+PLC_PORT = pyads.PORT_TC3PLC1 
+
+plc = pyads.Connection(LOCAL_AMS_NET_ID, PLC_PORT)
+plc.open()
+
+# Verify the connection is active
+if plc.is_open:
+    print(f"Connected successfully to local TwinCAT on port {PLC_PORT}")
+    try:
+        print(f"PLC State: {plc.read_state()}")
+    except pyads.PyadsError as state_err:
+        print(f"Could not read state (PLC likely in Config Mode): {state_err}")
+else:
+    print("Failed to open connection to the local TwinCAT router.")
+
+# =================================================================
+# 1. CORRECTED STRUCTURE LAYOUT (Perfect TwinCAT 64-bit Alignment)
+# =================================================================
+class StAxisData(ctypes.Structure):
+    _pack_ = 1  # Forces ctypes to pack variables sequentially without automatic OS padding
+    _fields_ = [
+        # --- Control (Inputs from Python/Logic) --- Total: 4 bytes
+        ("xEnable", ctypes.c_bool),      # 1 byte
+        ("xReset", ctypes.c_bool),       # 1 byte
+        ("xMoveAbs", ctypes.c_bool),     # 1 byte
+        ("xStop", ctypes.c_bool),        # 1 byte
+        
+        # --- Control Reals --- Total: 16 bytes
+        ("lrPosition", ctypes.c_double), # 8 bytes (LREAL)
+        ("lrVelocity", ctypes.c_double), # 8 bytes (LREAL)
+        
+        # --- Status (Outputs from PLC) --- Total: 4 bytes
+        ("xReady", ctypes.c_bool),       # 1 byte
+        ("xBusy", ctypes.c_bool),        # 1 byte
+        ("xDone", ctypes.c_bool),        # 1 byte
+        ("xError", ctypes.c_bool),       # 1 byte
+        
+        # --- Error and Actual Positions --- Total: 16 bytes
+        ("udiErrorID", ctypes.c_uint32), # 4 bytes (UDINT)
+        ("lrActPosition", ctypes.c_double) # 8 bytes (LREAL)
+    ]
+
+try:
+    # 2. Get dynamic array scale
+    max_axes = plc.read_by_name("GVL_Intjig.MAX_AXES", pyads.PLCTYPE_INT)
+    AxisDataArray_Type = StAxisData * max_axes
+
+    # =================================================================
+    # EXAMPLE A: READ THE ENTIRE DATA ARRAY
+    # =================================================================
+    axis_array = plc.read_by_name("GVL_Intjig.astAxisData", AxisDataArray_Type)
+    print(f"\nReading state array for all {max_axes} axes successfully.")
+    
+    # Read properties of Axis 3 (Python index 2)
+    print(f"--- AXIS 3 STATUS ---")
+    print(f"Ready: {axis_array[2].xReady}")
+    print(f"Busy: {axis_array[2].xBusy}")
+    print(f"Error: {axis_array[2].xError} (ID: {axis_array[2].udiErrorID})")
+    print(f"Actual Position: {axis_array[2].lrActPosition} mm")
+
+    # =================================================================
+    # EXAMPLE B: WRITE TO A SPECIFIC AXIS STRUCTURE
+    # =================================================================
+    axis_index = 2 
+    axis_Data = plc.read_by_name(f"GVL_Intjig.astAxisData[{axis_index + 1}]", StAxisData)
+    
+    # Modify control parameters
+    axis_Data.xEnable = True
+    axis_Data.xStop = False
+    axis_Data.lrPosition = 3200.75
+    axis_Data.lrVelocity = 50.0
+    
+    # Push memory payload straight down
+    plc.write_by_name(f"GVL_Intjig.astAxisData[{axis_index + 1}]", axis_Data)
+    print(f"\nSuccessfully updated Control parameters for Axis {axis_index + 1}")
+    
+    # Trigger handshake logic block safely
+    plc.write_by_name("MAIN.xNewPositionsAvailable", True, pyads.PLCTYPE_BOOL)
+    print("Handshake bit flipped. Local controller is executing motion.")
+
+    # 4. ACTIVE WAIT FOR PLC HARDWARE TO ENERGIZE
+    for _ in range(20):
+        time.sleep(0.1)
+        status_check = plc.read_by_name(f"GVL_Intjig.astAxisData[{axis_index + 1}]", StAxisData)
+        if status_check.xReady:
+            print("Drive is ENERGIZED and Ready! Sending edge trigger...")
+            break
+    else:
+        print("⚠️ Timeout: Axis failed to report xReady. Check your TwinCAT NC Drive Error ID!")
+
+    # 5. EXECUTE MOTION TRIGGER
+    plc.write_by_name(f"GVL_Intjig.astAxisData[{axis_index + 1}].xMoveAbs", True, pyads.PLCTYPE_BOOL)
+
+except pyads.PyadsError as ads_err:
+    print(f"\n[ADS Error Detected]: {ads_err}")
+    print("Verify your TwinCAT Runtime is currently running (Green Gear Icon).")
+except Exception as general_err:
+    print(f"\n[Python Application Error]: {general_err}")
+finally:
+    plc.close()
+    print("ADS session closed.")
