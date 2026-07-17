@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4026.18">
+  <POU Name="FB_AxisCtrl" Id="{7a21c02e-6fdc-47fe-89be-5c731ab2a55b}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_AxisCtrl
+VAR_INPUT
+	bPowerEnable							:BOOL;		// Power Enable
+	fPowerOverride							:LREAL;		// Override
+	bMoveAbsExecute							:BOOL;		// Abs Move Execute Bit
+	fMoveAbsPosition						:LREAL;		// Abs Position Command
+	fMoveAbsVelocity						:LREAL;		// Abs Velocity 
+	bReset									:BOOL;		// Reset Bit
+	bStopAxis								:BOOL;		// Stop Bit
+
+END_VAR
+VAR_OUTPUT
+	bPowerStatus							:BOOL;		// Power Enable Status
+	bMoveAbsDone							:BOOL;		// Abs Move Done Bit
+	bMoveAbsBusy							:BOOL;		// Abs Moving Bit
+	bAxisErr								:BOOL;		// Error Bit
+	nAxisErrId								:DWORD;		// Error Code
+	bStopAxisDone							:BOOL;		// Axis Stop Bit
+	bStopAxisBusy							:BOOL;		// Stopping
+
+END_VAR
+VAR
+	fbMcPower								:MC_Power;
+	fbMoveAbsolute							:MC_MoveAbsolute;
+	fbReadAxisError							:MC_ReadAxisError;
+	fbReset									:MC_Reset;
+	fbStop									:MC_Stop;
+END_VAR
+
+VAR_IN_OUT
+	stAxis									:Axis_Ref;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[(* FB_AxisCtrl NOT USED *)
+
+(* Read status of the axis *)
+	stAxis.ReadStatus();
+
+(* Enable axis *)
+	fbMcPower(
+		Enable			:= 	bPowerEnable,
+		Enable_Positive	:= 	bPowerEnable,
+		Enable_Negative	:= 	bPowerEnable,
+		Override		:= 	fPowerOverride,
+		Axis			:= 	stAxis,
+		Status			=> 	bPowerStatus);
+
+(* Start axis at an absolute position *)
+	fbMoveAbsolute(
+		Execute		:=	bMoveAbsExecute,
+		Position	:=	fMoveAbsPosition,
+		Velocity	:=	fMoveAbsVelocity,
+		Axis		:=	stAxis,
+		Done		=>	bMoveAbsDone,
+		Busy		=>	bMoveAbsBusy);
+
+(* Read the error code of the axis *)
+	fbReadAxisError(
+		Enable		:=	TRUE,
+		Axis		:=	stAxis,
+		AxisErrorID	=>	nAxisErrId);
+		
+	bAxisErr := nAxisErrId <> 0;
+
+(* Reset axis in case of failure *)
+	fbReset(
+		Execute		:= 	bReset,
+		Axis		:= 	stAxis);
+
+(* Stop axis *)
+	fbStop(
+		Execute 	:=	bStopAxis,
+		Axis		:=	stAxis,
+		Done		=>	bStopAxisDone,
+		Busy		=>	bStopAxisBusy);
+		
+(* End *)]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

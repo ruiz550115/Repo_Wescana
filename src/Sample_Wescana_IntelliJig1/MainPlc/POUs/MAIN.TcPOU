@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4026.18">
+  <POU Name="MAIN" Id="{2f00edb9-e08e-444b-9581-8532bce7c51f}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM MAIN
+VAR
+	nCycleCounter		: INT;
+	
+	iMotionSeq			: INT 	:= 1;		// Motion State Machine 
+	bStart				: BOOL	:= TRUE;	// Control Bit to Start the sequence
+	
+	fbMoveAbsolute		: ARRAY [1..GVL_CONSTANT.MAX_AXES] OF MC_MoveAbsolute;
+	i: INT;
+	bSeqDone			: BOOL;
+	lrActPos			: ARRAY [1..GVL_CONSTANT.MAX_AXES] OF REAL;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[(* Cycle counter *)
+	nCycleCounter := nCycleCounter + 1;
+	
+	FOR i := 1 TO GVL_CONSTANT.MAX_AXES DO
+		GVL_Axis.stAxes[i].ReadStatus();
+		lrActPos[i]	:= GVL_Axis.stAxes[i].NcToPlc.ActPos;
+	END_FOR	
+	
+(* Test*)
+(*
+aPythonPositions[1] := 100.0;
+aPythonPositions[2] := 200.0;
+aPythonPositions[10] := 500.0;
+aPythonPositions[11] := 100.0;
+aPythonPositions[36] := 600.0;
+*)
+
+(* Motion Sequence *)
+
+CASE iMotionSeq OF
+
+1:	(* Wait for start *)
+	
+	bSeqDone := FALSE;
+	//bBusy := FALSE;
+	
+	IF bStart THEN
+	
+	//	bBusy 		 := TRUE;
+		iMotionSeq := 10;
+		bStart	:= FALSE;
+	END_IF
+		
+10:	(* Initialize *)
+	FOR i := 1 TO GVL_CONSTANT.MAX_AXES DO
+		fbMoveAbsolute[i](
+			Axis	 := GVL_Axis.stAxes[i], 
+			Execute	 := FALSE);
+	END_FOR		
+	
+	IF xNewPositionsAvailable THEN		// Obtain the position commands from Python
+		FOR i := 1 TO GVL_CONSTANT.MAX_AXES DO
+			GVL_Axis.stAxisData[i].lrPosition := aPythonPositions[i];
+			// Trigger execution step safely
+			//IF GVL_Axis.stAxisData[i].xReady AND NOT GVL_Axis.stAxisData[i].xBusy THEN
+			IF NOT GVL_Axis.stAxisData[i].xError THEN	
+				iMotionSeq := 11;
+				ELSE
+					iMotionSeq := 999;		// Error Handling
+			END_IF
+		END_FOR
+	
+		xNewPositionsAvailable := FALSE; 
+		
+	END_IF
+
+11: // Enable Axes
+	PRG_Enable();
+	 
+	IF GVL_Axis.AllEnabled THEN
+		iMotionSeq := 20;
+		ELSE
+		;//iMotionSeq	:= 999;
+	END_IF
+
+20:	(* Start axis to position 1 *)
+FOR i := 1 TO GVL_CONSTANT.MAX_AXES DO
+		fbMoveAbsolute[i](
+			Axis		:= GVL_Axis.stAxes[i],
+			Execute		:= TRUE, 
+			Position	:= aPythonPositions[i], 
+			Velocity	:= GVL_axis.stAxisData[i].lrVelocity, 
+			ErrorID		=> GVL_axis.stAxisData[i].udiErrorID);
+			
+	IF NOT fbMoveAbsolute[i].Busy AND NOT fbMoveAbsolute[i].Error
+		THEN
+			fbMoveAbsolute[i](Axis	:= GVL_Axis.stAxes[i], Execute:= FALSE);
+			iMotionSeq := 30;
+	END_IF
+END_FOR	
+
+30:	(* Sequence done *)
+	
+	bSeqDone := TRUE;
+	
+	iMotionSeq := 1;
+		
+999	:	(* Error Handling *)
+;	
+	(*	bErr := TRUE;
+		nErrID;
+		
+		IF NOT bStart
+			AND NOT bStop
+		THEN
+			bErr 		   := FALSE;
+			nErrID		   := 0;
+		END_IF
+
+*)
+END_CASE
+
+(* End *)
+
+]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

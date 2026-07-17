@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4026.18">
+  <GVL Name="GVL_PY" Id="{811f0f87-b23b-423f-8252-6095742b850b}">
+    <Declaration><![CDATA[
+VAR_GLOBAL
+	// Python writes directly to these two variables:
+	aPythonPositions        : ARRAY[1..GVL_CONSTANT.MAX_AXES] OF REAL;
+	xNewPositionsAvailable  : BOOL;
+	aActualPositions        : ARRAY[1..GVL_CONSTANT.MAX_AXES] OF REAL; // <-- Landing pad for Python to read
+
+END_VAR]]></Declaration>
+  </GVL>
+</TcPlcObject>
