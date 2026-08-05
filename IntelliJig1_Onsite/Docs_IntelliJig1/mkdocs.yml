@@ -1,0 +1,28 @@
+site_name: Wescana - Project IntelliJig1 in WK32 in 2026
+
+theme: 
+  name: material 
+  font:
+    text: Malgun Gothic
+    code: Cascadia Mono
+  palette:
+    scheme: slate
+plugins:
+    - mkdocs-video  
+
+markdown_extensions:
+  - pymdownx.tasklist:
+      custom_checkbox: true # Renders beautiful icons instead of standard HTML checkboxes
+      clickable_checkbox: true
+
+
+nav:
+  - Agenda: index.md
+  - MACHINE : Machine.md
+  - PREP : Prep.md
+  - DAY 1 : DAY1.md
+  - DAY 2: DAY2.md
+  - DAY 3 : DAY3.md
+  - OPEN & CLOSED TOPICS : OpenTopics.md
+
+

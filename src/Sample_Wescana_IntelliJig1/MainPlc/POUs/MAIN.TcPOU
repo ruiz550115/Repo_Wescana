@@ -15,7 +15,11 @@ VAR
 END_VAR
 ]]></Declaration>
     <Implementation>
-      <ST><![CDATA[(* Cycle counter *)
+      <ST><![CDATA[(* Sine Wave Generation *)
+PRG_SineWave();
+PRG_Square();
+
+(* Cycle counter *)
 	nCycleCounter := nCycleCounter + 1;
 	
 	FOR i := 1 TO GVL_CONSTANT.MAX_AXES DO
@@ -85,14 +89,17 @@ FOR i := 1 TO GVL_CONSTANT.MAX_AXES DO
 		fbMoveAbsolute[i](
 			Axis		:= GVL_Axis.stAxes[i],
 			Execute		:= TRUE, 
-			Position	:= aPythonPositions[i], 
+			//Position	:= aPythonPositions[i],
+			//Position	:= PRG_SineWave.lfTargetPos[i],
+			Position	:= PRG_Square.lfTargetPos[i], 
 			Velocity	:= GVL_axis.stAxisData[i].lrVelocity, 
 			ErrorID		=> GVL_axis.stAxisData[i].udiErrorID);
 			
 	IF NOT fbMoveAbsolute[i].Busy AND NOT fbMoveAbsolute[i].Error
 		THEN
 			fbMoveAbsolute[i](Axis	:= GVL_Axis.stAxes[i], Execute:= FALSE);
-			iMotionSeq := 30;
+			//iMotionSeq := 30;
+			//iMotionSeq := 11;
 	END_IF
 END_FOR	
 

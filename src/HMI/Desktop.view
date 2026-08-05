@@ -1,0 +1,44 @@
+<div
+  id="Desktop"
+  data-tchmi-type="TcHmi.Controls.System.TcHmiView"
+  data-tchmi-top="0"
+  data-tchmi-left="0"
+  data-tchmi-width-mode="Content"
+  data-tchmi-min-width="100"
+  data-tchmi-min-width-unit="%"
+  data-tchmi-height-mode="Content"
+  data-tchmi-min-height="100"
+  data-tchmi-min-height-unit="%"
+>
+  <div
+    id="ViewDesktopBeckhoffLogo"
+    data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiImage"
+    data-tchmi-src="Images/Beckhoff_Logo.svg"
+    data-tchmi-left="20"
+    data-tchmi-top="20"
+    data-tchmi-width="194"
+    data-tchmi-height="57"
+  ></div>
+<div id="TcHmiBarChart_1" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiBarChart" data-tchmi-height="400" data-tchmi-height-unit="px" data-tchmi-left="66" data-tchmi-left-unit="px" data-tchmi-top="117" data-tchmi-top-unit="px" data-tchmi-width="661" data-tchmi-width-unit="px" data-tchmi-x-axis-name="x Axis" data-tchmi-y-axis-name="y Axis 1" data-tchmi-y-axis-unit="s" data-tchmi-y-main-tick-max-value="100" data-tchmi-y-main-tick-min-value="-100" data-tchmi-y-sub-tick-steps="4" data-tchmi-show-legend="True">
+<script data-tchmi-target-attribute="data-tchmi-bar-graph-data" type="application/json">
+[
+  "%s%ADS.PLC1.PRG_SineWave.lfTargetPos%/s%",
+  "%s%ADS.PLC1.PRG_Square.lfTargetPos%/s%",
+  "%s%ADS.PLC1.MAIN.lrActPos%/s%"
+]
+</script>
+<script data-tchmi-target-attribute="data-tchmi-bar-graph-descriptions" type="application/json">
+[
+  {
+    "barColor": "%tr%Control::TcHmi.Controls.Beckhoff.TcHmiBarChart::DefaultGraphColor%/tr%",
+    "legendName": "data0"
+  },
+  {
+    "barColor": "%tr%Control::TcHmi.Controls.Beckhoff.TcHmiBarChart::DefaultGraphColor%/tr%",
+    "legendName": "data1"
+  }
+]
+</script>
+
+</div>
+</div>

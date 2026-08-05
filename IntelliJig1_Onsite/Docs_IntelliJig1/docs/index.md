@@ -1,0 +1,26 @@
+# AGENDA: 
+
+## MACHINE CONFIGURATION
+
+
+## PREP
+
+
+
+## DAY 1
+
+
+
+## DAY2
+
+
+
+
+## DAY3
+
+
+## OPEN TOPICS
+
+
+
+

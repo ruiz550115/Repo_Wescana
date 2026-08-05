@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4026.18">
+  <POU Name="PRG_Enable" Id="{55befd12-cad8-47d3-9973-e38aaaa0480f}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM PRG_Enable
+VAR
+	fbMC_Power: ARRAY[1..GVL_CONSTANT.MAX_AXES] OF MC_Power;
+	i: INT;
+
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[FOR i := 1 TO GVL_CONSTANT.MAX_AXES DO
+	fbMC_Power[i](
+		Axis:= GVL_Axis.stAxes[i], 
+		Enable:= TRUE,					//GVL_Axis.stAxisData[i].xEnable, 
+		Enable_Positive:= TRUE,				//GVL_Axis.stAxisData[i].xEnable, 
+		Enable_Negative:= TRUE,				//GVL_Axis.stAxisData[i].xEnable, 
+		Override:= 100, 
+		BufferMode:= , 
+		Options:= , 
+		Status=> , 
+		Busy=> , 
+		Error=> , 
+		ErrorID=> );
+	
+	GVL_Axis.AllEnabled := fbMC_Power[i].Status;
+	
+END_FOR
+
+]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

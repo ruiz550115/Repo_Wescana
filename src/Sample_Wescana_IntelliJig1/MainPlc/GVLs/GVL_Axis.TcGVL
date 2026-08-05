@@ -1,9 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4026.18">
   <GVL Name="GVL_Axis" Id="{47956b4a-5ed6-494c-841c-314792b349d1}">
-    <Declaration><![CDATA[
-
-VAR_GLOBAL 
+    <Declaration><![CDATA[VAR_GLOBAL 
 	// System structures scale directly with the constant
 	stAxisData    	: ARRAY[1..GVL_CONSTANT.MAX_AXES] OF ST_AxisData;
 //	afbAxisCntrl   : ARRAY[1..GVL_Intjig.MAX_AXES] OF fbAxisCntrl;

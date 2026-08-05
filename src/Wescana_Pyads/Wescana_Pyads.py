@@ -15,6 +15,12 @@ CurrentPosition = plc.read_by_name("Main.lrActPos", pyads.PLCTYPE_ARR_REAL(36))
 print(CurrentPosition)
 
 
+symbols = plc.get_all_symbols()
+
+for s in symbols:
+    print(s.name)
+    
+
 # Cyclicly read joint commands from PLC and update robot state in pybullet
 while True:
     CurrentPosition = plc.read_by_name("Main.lrActPos", pyads.PLCTYPE_ARR_REAL(36))

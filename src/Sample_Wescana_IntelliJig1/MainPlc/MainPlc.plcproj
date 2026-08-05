@@ -42,6 +42,12 @@
     <Compile Include="POUs\Axis\PRG_Enable.TcPOU">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="POUs\Axis\PRG_SineWave.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="POUs\Axis\PRG_Square.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="POUs\MAIN.TcPOU">
       <SubType>Code</SubType>
     </Compile>

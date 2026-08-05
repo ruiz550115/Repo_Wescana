@@ -3,32 +3,43 @@
   "WorkspaceRootPath": "D:\\_GitRepo\\Repo_Wescana\\src\\Sample_Wescana_IntelliJig1\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{6A5F1BCC-B544-4FF3-812F-143C5C66C0B5}|MainPlc\\MainPlc.plcproj|D:\\_GitRepo\\Repo_Wescana\\src\\Sample_Wescana_IntelliJig1\\MainPlc\\GVLs\\GVL_PY.TcGVL||{CFF47BB1-5559-4BDE-A2AF-06B30BC64F6C}",
-      "RelativeMoniker": "D:0:0:{6A5F1BCC-B544-4FF3-812F-143C5C66C0B5}|MainPlc\\MainPlc.plcproj|solutionrelative:MainPlc\\GVLs\\GVL_PY.TcGVL||{CFF47BB1-5559-4BDE-A2AF-06B30BC64F6C}"
+      "AbsoluteMoniker": "D:0:0:{6A5F1BCC-B544-4FF3-812F-143C5C66C0B5}|MainPlc\\MainPlc.plcproj|D:\\_GitRepo\\Repo_Wescana\\src\\Sample_Wescana_IntelliJig1\\MainPlc\\POUs\\Axis\\PRG_Square.TcPOU||{CFF47BB1-5559-4BDE-A2AF-06B30BC64F6C}",
+      "RelativeMoniker": "D:0:0:{6A5F1BCC-B544-4FF3-812F-143C5C66C0B5}|MainPlc\\MainPlc.plcproj|solutionrelative:MainPlc\\POUs\\Axis\\PRG_Square.TcPOU||{CFF47BB1-5559-4BDE-A2AF-06B30BC64F6C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6A5F1BCC-B544-4FF3-812F-143C5C66C0B5}|MainPlc\\MainPlc.plcproj|D:\\_GitRepo\\Repo_Wescana\\src\\Sample_Wescana_IntelliJig1\\MainPlc\\GVLs\\GVL_CONSTANT.TcGVL||{CFF47BB1-5559-4BDE-A2AF-06B30BC64F6C}",
-      "RelativeMoniker": "D:0:0:{6A5F1BCC-B544-4FF3-812F-143C5C66C0B5}|MainPlc\\MainPlc.plcproj|solutionrelative:MainPlc\\GVLs\\GVL_CONSTANT.TcGVL||{CFF47BB1-5559-4BDE-A2AF-06B30BC64F6C}"
+      "AbsoluteMoniker": "D:0:0:{6A5F1BCC-B544-4FF3-812F-143C5C66C0B5}|MainPlc\\MainPlc.plcproj|D:\\_GitRepo\\Repo_Wescana\\src\\Sample_Wescana_IntelliJig1\\MainPlc\\POUs\\Axis\\PRG_SineWave.TcPOU||{CFF47BB1-5559-4BDE-A2AF-06B30BC64F6C}",
+      "RelativeMoniker": "D:0:0:{6A5F1BCC-B544-4FF3-812F-143C5C66C0B5}|MainPlc\\MainPlc.plcproj|solutionrelative:MainPlc\\POUs\\Axis\\PRG_SineWave.TcPOU||{CFF47BB1-5559-4BDE-A2AF-06B30BC64F6C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6A5F1BCC-B544-4FF3-812F-143C5C66C0B5}|MainPlc\\MainPlc.plcproj|D:\\_GitRepo\\Repo_Wescana\\src\\Sample_Wescana_IntelliJig1\\MainPlc\\GVLs\\GVL_Axis.TcGVL||{CFF47BB1-5559-4BDE-A2AF-06B30BC64F6C}",
-      "RelativeMoniker": "D:0:0:{6A5F1BCC-B544-4FF3-812F-143C5C66C0B5}|MainPlc\\MainPlc.plcproj|solutionrelative:MainPlc\\GVLs\\GVL_Axis.TcGVL||{CFF47BB1-5559-4BDE-A2AF-06B30BC64F6C}"
+      "AbsoluteMoniker": "D:0:0:{EC11D04F-1B74-4B26-83DE-4148CF5719CC}|..\\HMI\\HMI.hmiproj|D:\\_GitRepo\\Repo_Wescana\\src\\HMI\\Desktop.view||{5D9FBDFB-BFD6-4B5F-871D-4B35C4B2E6E2}|Html"
     },
     {
       "AbsoluteMoniker": "D:0:0:{6A5F1BCC-B544-4FF3-812F-143C5C66C0B5}|MainPlc\\MainPlc.plcproj|D:\\_GitRepo\\Repo_Wescana\\src\\Sample_Wescana_IntelliJig1\\MainPlc\\DUTs\\ST_AxisData.TcDUT||{CFF47BB1-5559-4BDE-A2AF-06B30BC64F6C}",
       "RelativeMoniker": "D:0:0:{6A5F1BCC-B544-4FF3-812F-143C5C66C0B5}|MainPlc\\MainPlc.plcproj|solutionrelative:MainPlc\\DUTs\\ST_AxisData.TcDUT||{CFF47BB1-5559-4BDE-A2AF-06B30BC64F6C}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{6A5F1BCC-B544-4FF3-812F-143C5C66C0B5}|MainPlc\\MainPlc.plcproj|D:\\_GitRepo\\Repo_Wescana\\src\\Sample_Wescana_IntelliJig1\\MainPlc\\POUs\\MAIN.TcPOU||{CFF47BB1-5559-4BDE-A2AF-06B30BC64F6C}",
+      "RelativeMoniker": "D:0:0:{6A5F1BCC-B544-4FF3-812F-143C5C66C0B5}|MainPlc\\MainPlc.plcproj|solutionrelative:MainPlc\\POUs\\MAIN.TcPOU||{CFF47BB1-5559-4BDE-A2AF-06B30BC64F6C}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{6A5F1BCC-B544-4FF3-812F-143C5C66C0B5}|MainPlc\\MainPlc.plcproj|D:\\_GitRepo\\Repo_Wescana\\src\\Sample_Wescana_IntelliJig1\\MainPlc\\POUs\\Axis\\PRG_Enable.TcPOU||{CFF47BB1-5559-4BDE-A2AF-06B30BC64F6C}",
       "RelativeMoniker": "D:0:0:{6A5F1BCC-B544-4FF3-812F-143C5C66C0B5}|MainPlc\\MainPlc.plcproj|solutionrelative:MainPlc\\POUs\\Axis\\PRG_Enable.TcPOU||{CFF47BB1-5559-4BDE-A2AF-06B30BC64F6C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6A5F1BCC-B544-4FF3-812F-143C5C66C0B5}|MainPlc\\MainPlc.plcproj|D:\\_GitRepo\\Repo_Wescana\\src\\Sample_Wescana_IntelliJig1\\MainPlc\\GVLs\\GVL_Axis.TcGVL||{CFF47BB1-5559-4BDE-A2AF-06B30BC64F6C}",
+      "RelativeMoniker": "D:0:0:{6A5F1BCC-B544-4FF3-812F-143C5C66C0B5}|MainPlc\\MainPlc.plcproj|solutionrelative:MainPlc\\GVLs\\GVL_Axis.TcGVL||{CFF47BB1-5559-4BDE-A2AF-06B30BC64F6C}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{6A5F1BCC-B544-4FF3-812F-143C5C66C0B5}|MainPlc\\MainPlc.plcproj|D:\\_GitRepo\\Repo_Wescana\\src\\Sample_Wescana_IntelliJig1\\MainPlc\\POUs\\Axis\\FB_AxisCtrl.TcPOU||{CFF47BB1-5559-4BDE-A2AF-06B30BC64F6C}",
       "RelativeMoniker": "D:0:0:{6A5F1BCC-B544-4FF3-812F-143C5C66C0B5}|MainPlc\\MainPlc.plcproj|solutionrelative:MainPlc\\POUs\\Axis\\FB_AxisCtrl.TcPOU||{CFF47BB1-5559-4BDE-A2AF-06B30BC64F6C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6A5F1BCC-B544-4FF3-812F-143C5C66C0B5}|MainPlc\\MainPlc.plcproj|D:\\_GitRepo\\Repo_Wescana\\src\\Sample_Wescana_IntelliJig1\\MainPlc\\POUs\\MAIN.TcPOU||{CFF47BB1-5559-4BDE-A2AF-06B30BC64F6C}",
-      "RelativeMoniker": "D:0:0:{6A5F1BCC-B544-4FF3-812F-143C5C66C0B5}|MainPlc\\MainPlc.plcproj|solutionrelative:MainPlc\\POUs\\MAIN.TcPOU||{CFF47BB1-5559-4BDE-A2AF-06B30BC64F6C}"
+      "AbsoluteMoniker": "D:0:0:{6A5F1BCC-B544-4FF3-812F-143C5C66C0B5}|MainPlc\\MainPlc.plcproj|D:\\_GitRepo\\Repo_Wescana\\src\\Sample_Wescana_IntelliJig1\\MainPlc\\GVLs\\GVL_PY.TcGVL||{CFF47BB1-5559-4BDE-A2AF-06B30BC64F6C}",
+      "RelativeMoniker": "D:0:0:{6A5F1BCC-B544-4FF3-812F-143C5C66C0B5}|MainPlc\\MainPlc.plcproj|solutionrelative:MainPlc\\GVLs\\GVL_PY.TcGVL||{CFF47BB1-5559-4BDE-A2AF-06B30BC64F6C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6A5F1BCC-B544-4FF3-812F-143C5C66C0B5}|MainPlc\\MainPlc.plcproj|D:\\_GitRepo\\Repo_Wescana\\src\\Sample_Wescana_IntelliJig1\\MainPlc\\GVLs\\GVL_CONSTANT.TcGVL||{CFF47BB1-5559-4BDE-A2AF-06B30BC64F6C}",
+      "RelativeMoniker": "D:0:0:{6A5F1BCC-B544-4FF3-812F-143C5C66C0B5}|MainPlc\\MainPlc.plcproj|solutionrelative:MainPlc\\GVLs\\GVL_CONSTANT.TcGVL||{CFF47BB1-5559-4BDE-A2AF-06B30BC64F6C}"
     }
   ],
   "DocumentGroupContainers": [
@@ -37,12 +48,40 @@
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-          "DockedWidth": 348,
+          "DockedWidth": 372,
           "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:1528276488:0:{a6f4fceb-1c71-4697-840a-c4fdf5060a5f}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1:0:{94c070b9-db0b-4415-9311-bac4eef266f5}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Desktop.view",
+              "DocumentMoniker": "D:\\_GitRepo\\Repo_Wescana\\src\\HMI\\Desktop.view",
+              "RelativeDocumentMoniker": "..\\HMI\\Desktop.view",
+              "ToolTip": "D:\\_GitRepo\\Repo_Wescana\\src\\HMI\\Desktop.view",
+              "RelativeToolTip": "..\\HMI\\Desktop.view",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2026-08-04T16:04:58.787Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "PRG_Square",
+              "DocumentMoniker": "D:\\_GitRepo\\Repo_Wescana\\src\\Sample_Wescana_IntelliJig1\\MainPlc\\POUs\\Axis\\PRG_Square.TcPOU",
+              "RelativeDocumentMoniker": "MainPlc\\POUs\\Axis\\PRG_Square.TcPOU",
+              "ToolTip": "PRG_Square [Sample_Wescana_IntelliJig1.MainPlc]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2026-08-04T16:48:07.556Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -58,28 +97,6 @@
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "PRG_Enable",
-              "DocumentMoniker": "D:\\_GitRepo\\Repo_Wescana\\src\\Sample_Wescana_IntelliJig1\\MainPlc\\POUs\\Axis\\PRG_Enable.TcPOU",
-              "RelativeDocumentMoniker": "MainPlc\\POUs\\Axis\\PRG_Enable.TcPOU",
-              "ToolTip": "PRG_Enable [Sample_Wescana_IntelliJig1.MainPlc]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2026-07-17T00:27:26.228Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "GVL_PY",
-              "DocumentMoniker": "D:\\_GitRepo\\Repo_Wescana\\src\\Sample_Wescana_IntelliJig1\\MainPlc\\GVLs\\GVL_PY.TcGVL",
-              "RelativeDocumentMoniker": "MainPlc\\GVLs\\GVL_PY.TcGVL",
-              "ToolTip": "GVL_PY [Sample_Wescana_IntelliJig1.MainPlc]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2026-07-16T22:12:16.482Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
               "Title": "MAIN",
               "DocumentMoniker": "D:\\_GitRepo\\Repo_Wescana\\src\\Sample_Wescana_IntelliJig1\\MainPlc\\POUs\\MAIN.TcPOU",
               "RelativeDocumentMoniker": "MainPlc\\POUs\\MAIN.TcPOU",
@@ -91,6 +108,28 @@
             {
               "$type": "Document",
               "DocumentIndex": 5,
+              "Title": "PRG_Enable",
+              "DocumentMoniker": "D:\\_GitRepo\\Repo_Wescana\\src\\Sample_Wescana_IntelliJig1\\MainPlc\\POUs\\Axis\\PRG_Enable.TcPOU",
+              "RelativeDocumentMoniker": "MainPlc\\POUs\\Axis\\PRG_Enable.TcPOU",
+              "ToolTip": "PRG_Enable [Sample_Wescana_IntelliJig1.MainPlc]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2026-07-17T00:27:26.228Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "GVL_PY",
+              "DocumentMoniker": "D:\\_GitRepo\\Repo_Wescana\\src\\Sample_Wescana_IntelliJig1\\MainPlc\\GVLs\\GVL_PY.TcGVL",
+              "RelativeDocumentMoniker": "MainPlc\\GVLs\\GVL_PY.TcGVL",
+              "ToolTip": "GVL_PY [Sample_Wescana_IntelliJig1.MainPlc]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2026-07-16T22:12:16.482Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
               "Title": "FB_AxisCtrl",
               "DocumentMoniker": "D:\\_GitRepo\\Repo_Wescana\\src\\Sample_Wescana_IntelliJig1\\MainPlc\\POUs\\Axis\\FB_AxisCtrl.TcPOU",
               "RelativeDocumentMoniker": "MainPlc\\POUs\\Axis\\FB_AxisCtrl.TcPOU",
@@ -101,7 +140,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 6,
               "Title": "GVL_Axis",
               "DocumentMoniker": "D:\\_GitRepo\\Repo_Wescana\\src\\Sample_Wescana_IntelliJig1\\MainPlc\\GVLs\\GVL_Axis.TcGVL",
               "RelativeDocumentMoniker": "MainPlc\\GVLs\\GVL_Axis.TcGVL",
@@ -112,13 +151,30 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 9,
               "Title": "GVL_CONSTANT",
               "DocumentMoniker": "D:\\_GitRepo\\Repo_Wescana\\src\\Sample_Wescana_IntelliJig1\\MainPlc\\GVLs\\GVL_CONSTANT.TcGVL",
               "RelativeDocumentMoniker": "MainPlc\\GVLs\\GVL_CONSTANT.TcGVL",
               "ToolTip": "GVL_CONSTANT [Sample_Wescana_IntelliJig1.MainPlc]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
               "WhenOpened": "2026-07-16T21:50:57.096Z",
+              "EditorCaption": ""
+            }
+          ]
+        },
+        {
+          "DockedWidth": 324,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "PRG_SineWave",
+              "DocumentMoniker": "D:\\_GitRepo\\Repo_Wescana\\src\\Sample_Wescana_IntelliJig1\\MainPlc\\POUs\\Axis\\PRG_SineWave.TcPOU",
+              "RelativeDocumentMoniker": "MainPlc\\POUs\\Axis\\PRG_SineWave.TcPOU",
+              "ToolTip": "PRG_SineWave [Sample_Wescana_IntelliJig1.MainPlc]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2026-08-04T16:01:52.63Z",
               "EditorCaption": ""
             }
           ]

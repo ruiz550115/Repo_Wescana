@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4026.18">
+  <POU Name="PRG_Square" Id="{8759ba38-5ecf-4b59-a058-1636bef1fce6}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM PRG_Square
+VAR
+	AxisPhase 		: LREAL;
+	GlobalPhase     : LREAL := 0;
+	
+    h : LREAL;
+	i : INT;
+	WaveLength      : LREAL := 36.0;      // one sine across 36 motors
+    Speed           : LREAL := 1.0;       // rad/sec
+
+    Amplitude       : LREAL := 100.0;      // mm
+    Offset          : LREAL := 0.0;
+	
+	lfTargetPos       : ARRAY[1..36] OF LREAL;
+
+	NormPhase 		: LREAL;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[(*
+FOR i := 1 TO 36 DO
+
+    AxisPhase :=  2.0 * PI * (INT_TO_LREAL(i-1) / WaveLength);
+
+    h := SIN(GlobalPhase + AxisPhase);
+
+    IF h >= 0 THEN
+        lfTargetPos[i] := Offset + Amplitude;
+    ELSE
+        lfTargetPos[i] := Offset - Amplitude;
+    END_IF
+
+END_FOR
+
+*)
+FOR i := 1 TO 36 DO
+
+IF NormPhase < 0.25 THEN
+
+    lfTargetPos[i] :=
+        Offset +
+        Amplitude * (NormPhase * 4.0);
+
+ELSIF NormPhase < 0.75 THEN
+
+    lfTargetPos[i] :=
+        Offset +
+        Amplitude *
+        (2.0 - NormPhase * 4.0);
+
+ELSE
+
+    lfTargetPos[i] :=
+        Offset +
+        Amplitude *
+        (NormPhase * 4.0 - 4.0);
+
+END_IF
+
+END_FOR]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

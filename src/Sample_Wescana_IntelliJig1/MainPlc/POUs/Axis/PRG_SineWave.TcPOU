@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4026.18">
+  <POU Name="PRG_SineWave" Id="{45d8db18-ccdf-4b5f-a749-ae950e4fc1b4}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM PRG_SineWave
+VAR
+	 i               : INT;
+
+    (* Wave parameters *)
+    Amplitude       : LREAL := 100.0;      // mm
+    Offset          : LREAL := 0.0;
+
+    WaveLength      : LREAL := 36.0;      // one sine across 36 motors
+    Speed           : LREAL := 1.0;       // rad/sec
+
+    GlobalPhase     : LREAL := 0;
+
+    AxisPhase       : LREAL;
+    lfTargetPos       : ARRAY[1..36] OF LREAL;
+
+    CycleTime       : LREAL := 0.0001;     // PLC task
+
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[GlobalPhase := GlobalPhase + Speed * CycleTime;
+
+IF GlobalPhase > 6.283185 THEN
+    GlobalPhase := GlobalPhase - 6.283185;
+END_IF
+
+FOR i := 1 TO 36 DO
+
+    AxisPhase := 2.0 * 3.1415926535 * (INT_TO_LREAL(i-1) / WaveLength);
+
+    lfTargetPos[i] :=
+        Offset +
+        Amplitude *
+        SIN(GlobalPhase + AxisPhase);
+
+END_FOR]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

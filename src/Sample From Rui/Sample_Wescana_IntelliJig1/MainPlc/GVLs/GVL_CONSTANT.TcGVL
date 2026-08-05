@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4026.18">
+  <GVL Name="GVL_CONSTANT" Id="{f773e22e-b171-4f37-b569-a3c3ed877299}">
+    <Declaration><![CDATA[VAR_GLOBAL CONSTANT
+	// Set this to ANY arbitrary integer. The entire PLC system scales to it automatically.
+	MAX_AXES 	: INT 	:= 36; 
+END_VAR]]></Declaration>
+  </GVL>
+</TcPlcObject>
