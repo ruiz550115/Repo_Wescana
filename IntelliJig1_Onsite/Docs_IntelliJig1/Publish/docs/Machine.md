@@ -1,10 +1,17 @@
 # MACHINE CONFIGURATION
 
+## Components List
+
+<img src="../images/List.png" width="1000">
+
 ## Software Version
 
         - TwinCAT 4026.??
         - Drive Manager 2 : 
 
+## IPC : CX2043
+
+## HMI Panel : CP2918
 
 ## IOs
 

@@ -814,6 +814,16 @@
             },
             "USEMAPPING": true
         },
+        "ADS.PLC1.GVL_PY.xNewPositionsAvailable": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::GVL_PY::xNewPositionsAvailable",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/BOOL"
+            },
+            "USEMAPPING": true
+        },
         "ADS.PLC1.MAIN.lrActPos": {
             "ACCESS": 3,
             "DOMAIN": "ADS",
@@ -821,6 +831,16 @@
             "MAPPING": "PLC1::MAIN::lrActPos",
             "SCHEMA": {
                 "$ref": "tchmi:server#/definitions/ADS-PLC1.ARRAY_1..36_OF-REAL"
+            },
+            "USEMAPPING": true
+        },
+        "ADS.PLC1.MAIN.xBtnStop": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::MAIN::xBtnStop",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/BOOL"
             },
             "USEMAPPING": true
         },
@@ -3847,7 +3867,9 @@
                 "ADS.AdsSyncReadStateReq": 3,
                 "ADS.CheckLicense": 3,
                 "ADS.Diagnostics": 3,
+                "ADS.PLC1.GVL_PY.xNewPositionsAvailable": 3,
                 "ADS.PLC1.MAIN.lrActPos": 3,
+                "ADS.PLC1.MAIN.xBtnStop": 3,
                 "ADS.PLC1.PRG_SineWave.lfTargetPos": 3,
                 "ADS.PLC1.PRG_Square.lfTargetPos": 3,
                 "ChangeUserSettings": 3,

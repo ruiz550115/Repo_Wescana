@@ -19,11 +19,10 @@
     data-tchmi-width="194"
     data-tchmi-height="57"
   ></div>
-<div id="TcHmiBarChart_1" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiBarChart" data-tchmi-height="400" data-tchmi-height-unit="px" data-tchmi-left="66" data-tchmi-left-unit="px" data-tchmi-top="117" data-tchmi-top-unit="px" data-tchmi-width="661" data-tchmi-width-unit="px" data-tchmi-x-axis-name="x Axis" data-tchmi-y-axis-name="y Axis 1" data-tchmi-y-axis-unit="s" data-tchmi-y-main-tick-max-value="100" data-tchmi-y-main-tick-min-value="-100" data-tchmi-y-sub-tick-steps="4" data-tchmi-show-legend="True">
+<div id="TcHmiBarChart_1" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiBarChart" data-tchmi-height="400" data-tchmi-height-unit="px" data-tchmi-left="72" data-tchmi-left-unit="px" data-tchmi-top="103" data-tchmi-top-unit="px" data-tchmi-width="661" data-tchmi-width-unit="px" data-tchmi-x-axis-name="Motors" data-tchmi-y-axis-name="Amplitude" data-tchmi-y-axis-unit="s" data-tchmi-y-main-tick-max-value="100" data-tchmi-y-main-tick-min-value="-100" data-tchmi-y-sub-tick-steps="4" data-tchmi-show-legend="True" data-tchmi-bar-graph-arrangement="Clustered" data-tchmi-show-x-axis-name="True" data-tchmi-show-y-axis-name="True" data-tchmi-legend-font-style="Auto">
 <script data-tchmi-target-attribute="data-tchmi-bar-graph-data" type="application/json">
 [
   "%s%ADS.PLC1.PRG_SineWave.lfTargetPos%/s%",
-  "%s%ADS.PLC1.PRG_Square.lfTargetPos%/s%",
   "%s%ADS.PLC1.MAIN.lrActPos%/s%"
 ]
 </script>
@@ -40,5 +39,9 @@
 ]
 </script>
 
+</div>
+<div id="TBtn_PosAva" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiToggleButton" data-tchmi-height="64" data-tchmi-height-unit="px" data-tchmi-left="261" data-tchmi-left-unit="px" data-tchmi-text="START" data-tchmi-top="526" data-tchmi-top-unit="px" data-tchmi-width="128" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-state-symbol="%s%ADS.PLC1.GVL_PY.xNewPositionsAvailable%/s%" data-tchmi-text-font-size="20">
+</div>
+<div id="TBtn_Stop" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiToggleButton" data-tchmi-height="64" data-tchmi-height-unit="px" data-tchmi-left="425" data-tchmi-left-unit="px" data-tchmi-text="STOP" data-tchmi-top="526" data-tchmi-top-unit="px" data-tchmi-width="128" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="20" data-tchmi-state-symbol="%s%ADS.PLC1.MAIN.xBtnStop%/s%">
 </div>
 </div>

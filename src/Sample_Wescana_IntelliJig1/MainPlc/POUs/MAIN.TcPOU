@@ -12,12 +12,13 @@ VAR
 	i: INT;
 	bSeqDone			: BOOL;
 	lrActPos			: ARRAY [1..GVL_CONSTANT.MAX_AXES] OF REAL;
+	xBtnStop: BOOL;
 END_VAR
 ]]></Declaration>
     <Implementation>
       <ST><![CDATA[(* Sine Wave Generation *)
 PRG_SineWave();
-PRG_Square();
+//PRG_Square();
 
 (* Cycle counter *)
 	nCycleCounter := nCycleCounter + 1;
@@ -53,6 +54,8 @@ CASE iMotionSeq OF
 	END_IF
 		
 10:	(* Initialize *)
+	xBtnStop := FALSE;	
+
 	FOR i := 1 TO GVL_CONSTANT.MAX_AXES DO
 		fbMoveAbsolute[i](
 			Axis	 := GVL_Axis.stAxes[i], 
@@ -90,8 +93,8 @@ FOR i := 1 TO GVL_CONSTANT.MAX_AXES DO
 			Axis		:= GVL_Axis.stAxes[i],
 			Execute		:= TRUE, 
 			//Position	:= aPythonPositions[i],
-			//Position	:= PRG_SineWave.lfTargetPos[i],
-			Position	:= PRG_Square.lfTargetPos[i], 
+			Position	:= PRG_SineWave.lfTargetPos[i],
+			//Position	:= PRG_Square.lfTargetPos[i], 
 			Velocity	:= GVL_axis.stAxisData[i].lrVelocity, 
 			ErrorID		=> GVL_axis.stAxisData[i].udiErrorID);
 			
@@ -126,6 +129,9 @@ END_CASE
 
 (* End *)
 
+IF xBtnStop THEN
+	iMotionSeq := 10;
+END_IF
 ]]></ST>
     </Implementation>
   </POU>
