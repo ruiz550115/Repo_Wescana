@@ -1,5 +1,11 @@
 # DAY 1
 
+## Software Simulation and HMI
+
+
+<img src="../images/M1.jpg" width="800">
+
+
 ## Target : One Axis Commissioning 
 
 

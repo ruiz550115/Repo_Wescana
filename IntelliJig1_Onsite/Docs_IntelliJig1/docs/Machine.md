@@ -14,6 +14,10 @@
 ## HMI Panel : CP2918
 
 ## IOs
+        - EL6070
+        - EL6910
+        - EL1918 *2
+        - EK1310
 
 ## Motion Components 
 

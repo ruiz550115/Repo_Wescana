@@ -3,15 +3,15 @@
   "WorkspaceRootPath": "D:\\_GitRepo\\Repo_Wescana\\src\\Sample_Wescana_IntelliJig1\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{6A5F1BCC-B544-4FF3-812F-143C5C66C0B5}|MainPlc\\MainPlc.plcproj|D:\\_GitRepo\\Repo_Wescana\\src\\Sample_Wescana_IntelliJig1\\MainPlc\\POUs\\Axis\\PRG_SineWave.TcPOU||{CFF47BB1-5559-4BDE-A2AF-06B30BC64F6C}",
-      "RelativeMoniker": "D:0:0:{6A5F1BCC-B544-4FF3-812F-143C5C66C0B5}|MainPlc\\MainPlc.plcproj|solutionrelative:MainPlc\\POUs\\Axis\\PRG_SineWave.TcPOU||{CFF47BB1-5559-4BDE-A2AF-06B30BC64F6C}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{EC11D04F-1B74-4B26-83DE-4148CF5719CC}|..\\HMI\\HMI.hmiproj|D:\\_GitRepo\\Repo_Wescana\\src\\HMI\\Desktop.view||{5D9FBDFB-BFD6-4B5F-871D-4B35C4B2E6E2}|Html"
     },
     {
       "AbsoluteMoniker": "D:0:0:{6A5F1BCC-B544-4FF3-812F-143C5C66C0B5}|MainPlc\\MainPlc.plcproj|D:\\_GitRepo\\Repo_Wescana\\src\\Sample_Wescana_IntelliJig1\\MainPlc\\POUs\\MAIN.TcPOU||{CFF47BB1-5559-4BDE-A2AF-06B30BC64F6C}",
       "RelativeMoniker": "D:0:0:{6A5F1BCC-B544-4FF3-812F-143C5C66C0B5}|MainPlc\\MainPlc.plcproj|solutionrelative:MainPlc\\POUs\\MAIN.TcPOU||{CFF47BB1-5559-4BDE-A2AF-06B30BC64F6C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6A5F1BCC-B544-4FF3-812F-143C5C66C0B5}|MainPlc\\MainPlc.plcproj|D:\\_GitRepo\\Repo_Wescana\\src\\Sample_Wescana_IntelliJig1\\MainPlc\\POUs\\Axis\\PRG_SineWave.TcPOU||{CFF47BB1-5559-4BDE-A2AF-06B30BC64F6C}",
+      "RelativeMoniker": "D:0:0:{6A5F1BCC-B544-4FF3-812F-143C5C66C0B5}|MainPlc\\MainPlc.plcproj|solutionrelative:MainPlc\\POUs\\Axis\\PRG_SineWave.TcPOU||{CFF47BB1-5559-4BDE-A2AF-06B30BC64F6C}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{6A5F1BCC-B544-4FF3-812F-143C5C66C0B5}|MainPlc\\MainPlc.plcproj|D:\\_GitRepo\\Repo_Wescana\\src\\Sample_Wescana_IntelliJig1\\MainPlc\\POUs\\Axis\\PRG_Square.TcPOU||{CFF47BB1-5559-4BDE-A2AF-06B30BC64F6C}",
@@ -49,7 +49,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 352,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -57,7 +57,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "PRG_SineWave",
               "DocumentMoniker": "D:\\_GitRepo\\Repo_Wescana\\src\\Sample_Wescana_IntelliJig1\\MainPlc\\POUs\\Axis\\PRG_SineWave.TcPOU",
               "RelativeDocumentMoniker": "MainPlc\\POUs\\Axis\\PRG_SineWave.TcPOU",
@@ -90,7 +90,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "MAIN",
               "DocumentMoniker": "D:\\_GitRepo\\Repo_Wescana\\src\\Sample_Wescana_IntelliJig1\\MainPlc\\POUs\\MAIN.TcPOU",
               "RelativeDocumentMoniker": "MainPlc\\POUs\\MAIN.TcPOU",
@@ -155,16 +155,6 @@
               "EditorCaption": ""
             }
           ]
-        },
-        {
-          "DockedWidth": 344,
-          "SelectedChildIndex": -1,
-          "Children": [
-            {
-              "$type": "Bookmark",
-              "Name": "ST:1:0:{94c070b9-db0b-4415-9311-bac4eef266f5}"
-            }
-          ]
         }
       ]
     },
@@ -187,7 +177,7 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "Desktop.view",
               "DocumentMoniker": "D:\\_GitRepo\\Repo_Wescana\\src\\HMI\\Desktop.view",
               "RelativeDocumentMoniker": "..\\HMI\\Desktop.view",
